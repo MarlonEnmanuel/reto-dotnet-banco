@@ -2,7 +2,8 @@
 
 namespace ClientsApi.Infrastructure.Repositories
 {
-    public class UnitOfWork(IClientsRepository clientsRepository, ClientsContext context) : IUnitOfWork
+    public class UnitOfWork(ClientsContext context,
+                            IClientsRepository clientsRepository) : IUnitOfWork
     {
         public IClientsRepository ClientsRepository { get; } = clientsRepository;
 

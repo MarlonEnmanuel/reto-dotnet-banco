@@ -25,6 +25,11 @@ namespace ClientsApi.Infrastructure.Repositories
             return await context.Clients.AnyAsync(c => c.Id == clientId);
         }
 
+        public async Task<bool> ExistsIdentification(string identification, int excludeId)
+        {
+            return await context.Clients.AnyAsync(c => c.Identification == identification && c.Id != excludeId);
+        }
+
         public async Task Create(Client client)
         {
             if (client.Id != default)

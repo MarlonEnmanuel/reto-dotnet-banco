@@ -21,6 +21,9 @@ namespace ClientsApi.Infrastructure.Database.Configurations
 
             builder.Property(e => e.PhoneNumber)
                    .HasMaxLength(20);
+
+            builder.HasIndex(e => e.Identification)
+                   .IsUnique();
         }
     }
 }

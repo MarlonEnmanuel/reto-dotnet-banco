@@ -1,5 +1,8 @@
 ﻿using ClientsApi.Application.Services;
+using ClientsApi.Domain;
+using ClientsApi.Domain.Validators;
 using ClientsApi.Infrastructure.Repositories;
+using FluentValidation;
 
 namespace ClientsApi
 {
@@ -11,6 +14,7 @@ namespace ClientsApi
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<IClientsMapper, ClientsMapper>();
             services.AddScoped<IClientsService, ClientsService>();
+            services.AddScoped<IValidator<Client>, ClientValidator>();
         }
     }
 }

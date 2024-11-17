@@ -1,10 +1,14 @@
 ﻿using ClientsApi.Application.Dtos;
+using ClientsApi.Domain;
 using ClientsApi.Infrastructure.Repositories;
+using FluentValidation;
 using Shared.Exceptions;
 
 namespace ClientsApi.Application.Services
 {
-    public class ClientsService(IUnitOfWork unitOfWork, IClientsMapper mapper) : IClientsService
+    public class ClientsService(IUnitOfWork unitOfWork,
+                                IClientsMapper mapper,
+                                IValidator<Client> validator) : IClientsService
     {
         public async Task<List<ClientDto>> GetClients()
         {
@@ -22,10 +26,9 @@ namespace ClientsApi.Application.Services
 
         public async Task<ClientDto> CreateClient(CreateClientDto dto)
         {
-            // TODO: validate dto
-            // TODO: validate identification exists
-
             var client = mapper.ToClient(dto);
+            await validator.ValidateAndThrowAsync(client);
+
             await unitOfWork.ClientsRepository.Create(client);
             await unitOfWork.Save();
 
@@ -34,17 +37,16 @@ namespace ClientsApi.Application.Services
 
         public async Task<ClientDto> UpdateClient(int clientId, UpdateClientDto dto)
         {
-            if (clientId != dto.Id)
-                throw new ValidationException("El id del cliente no coincide con la url");
-
-            // TODO: validate dto
-            // TODO: validate identification exists
+            if (clientId <= 0 || clientId != dto.Id)
+                throw new BadRequestException("Error en el id del cliente");
 
             var exists = await unitOfWork.ClientsRepository.Exists(clientId);
             if (!exists)
                 throw new NotFoundException($"El cliente con id '{clientId}' no existe");
 
             var client = mapper.ToClient(dto);
+            await validator.ValidateAndThrowAsync(client);
+
             await unitOfWork.ClientsRepository.Update(client);
             await unitOfWork.Save();
 
