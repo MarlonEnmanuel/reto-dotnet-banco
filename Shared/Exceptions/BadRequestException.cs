@@ -2,7 +2,7 @@
 {
     public class BadRequestException : Exception
     {
-        private string[]? Details { get; }
+        public string[]? Details { get; }
 
         public BadRequestException(string message) : base(message)
         {

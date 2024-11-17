@@ -2,6 +2,7 @@ using ClientsApi;
 using ClientsApi.Infrastructure.Controllers;
 using ClientsApi.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
+using Shared.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Configure global exception handler
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 // Configure app routes
 app.MapClientRoutes();
