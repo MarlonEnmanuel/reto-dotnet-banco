@@ -1,4 +1,4 @@
-﻿namespace ClientsApi.Infrastructure.Repositories
+﻿namespace ClientsApi.Infrastructure.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {

@@ -1,6 +1,6 @@
 ﻿using ClientsApi.Application.Dtos;
 
-namespace ClientsApi.Application.Services
+namespace ClientsApi.Application.Interfaces
 {
     public interface IClientsService
     {

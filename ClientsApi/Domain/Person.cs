@@ -1,4 +1,4 @@
-﻿using ClientsApi.Application.Enums;
+﻿using Shared.Enums;
 
 namespace ClientsApi.Domain
 {

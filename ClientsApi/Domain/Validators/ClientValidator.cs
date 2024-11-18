@@ -1,4 +1,4 @@
-﻿using ClientsApi.Infrastructure.Repositories;
+﻿using ClientsApi.Infrastructure.Interfaces;
 using FluentValidation;
 
 namespace ClientsApi.Domain.Validators
@@ -24,6 +24,7 @@ namespace ClientsApi.Domain.Validators
                 .WithMessage("La edad no debe exceder los 120 años");
 
             RuleFor(d => d.Identification)
+                .Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .WithMessage("La identificación no debe ser vacía")
                 .MaximumLength(20)

@@ -1,6 +1,7 @@
 ﻿using ClientsApi.Application.Dtos;
+using ClientsApi.Application.Interfaces;
 using ClientsApi.Domain;
-using ClientsApi.Infrastructure.Repositories;
+using ClientsApi.Infrastructure.Interfaces;
 using FluentValidation;
 using Shared.Exceptions;
 
@@ -38,13 +39,13 @@ namespace ClientsApi.Application.Services
         public async Task<ClientDto> UpdateClient(int clientId, UpdateClientDto dto)
         {
             if (clientId <= 0 || clientId != dto.Id)
-                throw new BadRequestException("Error en el id del cliente");
+                throw new BadRequestException("El Id del cliente es incorrecto");
 
-            var exists = await unitOfWork.ClientsRepository.Exists(clientId);
-            if (!exists)
+            var client = await unitOfWork.ClientsRepository.GetById(clientId);
+            if (client == null)
                 throw new NotFoundException($"El cliente con id '{clientId}' no existe");
 
-            var client = mapper.ToClient(dto);
+            mapper.ToClient(dto, client);
             await validator.ValidateAndThrowAsync(client);
 
             await unitOfWork.ClientsRepository.Update(client);

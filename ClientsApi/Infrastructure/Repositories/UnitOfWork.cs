@@ -1,4 +1,5 @@
 ﻿using ClientsApi.Infrastructure.Database;
+using ClientsApi.Infrastructure.Interfaces;
 
 namespace ClientsApi.Infrastructure.Repositories
 {

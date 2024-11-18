@@ -1,5 +1,5 @@
 ﻿using ClientsApi.Application.Dtos;
-using ClientsApi.Application.Services;
+using ClientsApi.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClientsApi.Infrastructure.Controllers
@@ -8,31 +8,31 @@ namespace ClientsApi.Infrastructure.Controllers
     {
         public static void MapClientRoutes(this IEndpointRouteBuilder routeBuilder)
         {
-            var clients = routeBuilder.MapGroup("/clients").WithOpenApi();
+            var group = routeBuilder.MapGroup("/clientes").WithOpenApi();
 
-            clients.MapGet("", async ([FromServices] IClientsService service) =>
+            group.MapGet("", async ([FromServices] IClientsService service) =>
             {
                 return Results.Ok(await service.GetClients());
             });
 
-            clients.MapGet("{id:int}", async (int id, [FromServices] IClientsService service) =>
+            group.MapGet("{id:int}", async (int id, [FromServices] IClientsService service) =>
             {
                 return Results.Ok(await service.GetClient(id));
             });
 
-            clients.MapPost("", async ([FromBody] CreateClientDto dto, [FromServices] IClientsService service) =>
+            group.MapPost("", async ([FromBody] CreateClientDto dto, [FromServices] IClientsService service) =>
             {
                 var result = await service.CreateClient(dto);
-                return Results.Created($"/clients/{result.Id}", result);
+                return Results.Created($"/clientes/{result.Id}", result);
             });
 
-            clients.MapPut("{id:int}", async (int id, [FromBody] UpdateClientDto dto, [FromServices] IClientsService service) =>
+            group.MapPut("{id:int}", async (int id, [FromBody] UpdateClientDto dto, [FromServices] IClientsService service) =>
             {
                 var result = await service.UpdateClient(id, dto);
-                return Results.Accepted($"/clients/{result.Id}", result);
+                return Results.Accepted($"/clientes/{result.Id}", result);
             });
 
-            clients.MapDelete("{id:int}", async (int id, [FromServices] IClientsService service) =>
+            group.MapDelete("{id:int}", async (int id, [FromServices] IClientsService service) =>
             {
                 await service.DeleteClient(id);
                 return Results.NoContent();

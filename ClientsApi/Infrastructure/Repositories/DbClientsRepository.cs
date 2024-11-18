@@ -1,5 +1,6 @@
 ﻿using ClientsApi.Domain;
 using ClientsApi.Infrastructure.Database;
+using ClientsApi.Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClientsApi.Infrastructure.Repositories
