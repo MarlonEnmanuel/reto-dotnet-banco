@@ -42,4 +42,4 @@ app.MapReportsRoutes();
 
 app.Run();
 
-public partial class Program { }
+public partial class Program { } // for integrations tests

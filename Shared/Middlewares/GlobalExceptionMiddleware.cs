@@ -39,6 +39,14 @@ namespace Shared.Middlewares
                     ErrorDetails = ex.Errors.Select(e => e.ErrorMessage).ToArray(),
                 });
             }
+            catch(InternalException ex)
+            {
+                context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+                await context.Response.WriteAsJsonAsync(new ErrorResponse
+                {
+                    Error = ex.Message,
+                });
+            }
             catch (Exception ex)
             {
                 context.Response.StatusCode = StatusCodes.Status500InternalServerError;
