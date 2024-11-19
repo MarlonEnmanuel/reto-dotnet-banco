@@ -15,8 +15,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:4001/clientes",
-							"protocol": "https",
+							"raw": "http://localhost:4001/clientes",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -34,8 +34,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:4001/clientes/1",
-							"protocol": "https",
+							"raw": "http://localhost:4001/clientes/1",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -63,8 +63,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:4001/clientes",
-							"protocol": "https",
+							"raw": "http://localhost:4001/clientes",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -91,8 +91,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:4001/clientes/1",
-							"protocol": "https",
+							"raw": "http://localhost:4001/clientes/1",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -111,8 +111,8 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:4001/clientes/2",
-							"protocol": "https",
+							"raw": "http://localhost:4001/clientes/2",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -136,8 +136,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:4002/cuentas",
-							"protocol": "https",
+							"raw": "http://localhost:4002/cuentas",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -155,8 +155,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:4002/cuentas/0002",
-							"protocol": "https",
+							"raw": "http://localhost:4002/cuentas/0002",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -184,8 +184,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:4002/cuentas",
-							"protocol": "https",
+							"raw": "http://localhost:4002/cuentas",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -212,8 +212,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:4002/cuentas/1",
-							"protocol": "https",
+							"raw": "http://localhost:4002/cuentas/1",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -232,8 +232,8 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:4002/cuentas/0002",
-							"protocol": "https",
+							"raw": "http://localhost:4002/cuentas/0002",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -257,8 +257,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:4002/movimientos",
-							"protocol": "https",
+							"raw": "http://localhost:4002/movimientos",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -276,8 +276,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:4002/movimientos/1",
-							"protocol": "https",
+							"raw": "http://localhost:4002/movimientos/1",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -305,8 +305,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:4002/movimientos",
-							"protocol": "https",
+							"raw": "http://localhost:4002/movimientos",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -333,8 +333,8 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:4002/movimientos/8",
-							"protocol": "https",
+							"raw": "http://localhost:4002/movimientos/8",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -353,8 +353,8 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:4002/movimientos/16",
-							"protocol": "https",
+							"raw": "http://localhost:4002/movimientos/16",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
@@ -378,8 +378,8 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:4002/reportes?clientId=1&startDate=2024-11-18 11:00:00",
-							"protocol": "https",
+							"raw": "http://localhost:4002/reportes?clientId=1&startDate=2024-11-18 11:00:00",
+							"protocol": "http",
 							"host": [
 								"localhost"
 							],
