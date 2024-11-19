@@ -63,10 +63,10 @@ git clone https://github.com/MarlonEnmanuel/reto-dotnet-banco.git
 Ubicarse dentro de la carpeta descargada y compilar la solución
 ```
 cd .\reto-dotnet-banco\
-    dotnet build
+dotnet build
 ```
 Crear las BD en SQL Server para cada microservicio
-- Opción 1: Crear las bases de datos manualmente usando los siguientes archivos del repositorio
+- Opción 1: Crear las bases de datos manualmente y ejecutar los siguientes archivos provistos en el repositorio
     ```
     ClientsDb     -> Files\BaseDatos_ClientsDb.sql
     AccountsDb    -> Files\BaseDatos_AccountsDb.sql
@@ -79,7 +79,7 @@ Crear las BD en SQL Server para cada microservicio
   cd .\AccountsApi\
   dotnet-ef database update
   ```
-- En caso de utiizar nombres de base de datos diferentes a las provistas por defecto se debe actualiza las cadenas de conexión en los siguientes archivos:
+- En caso de utiizar nombres de base de datos diferentes a las provistas por defecto se debe actualizar las cadenas de conexión en los siguientes archivos:
     ```  
     ClientsApi/appsettings.json
     AccountsApi/appsettings.json
@@ -97,15 +97,15 @@ Abrir otra terminar en la carpeta de la solución y ejecutar
 cd .\AccountsApi\
 dotnet run --urls "http://localhost:4002"
 ```
-Abrir la aplicación Postman e importa el archivo provisto en el repositorio
-- Files/Reto .NET Banco.postman_collection.json
+Abrir la aplicación Postman e importar el archivo provisto en el repositorio
+- `Files/Reto .NET Banco.postman_collection.json`
 
 En caso de utilizar puertos diferentes al 4001 y 4002:
 - Actualizar en `AccountsApi/appsettings.json` la URL del api de clientes
 - Actualizar los request de Postman con los puertos correspondientes
 
 ## Ejecutar pruebas
-Abrir una terminar en la carpeta de la soluciín y ejecutar
+Abrir una terminar en la carpeta de la solución y ejecutar
 ```
 dotnet test
 ```
